@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import Viewport from "./components/Viewport";
+import Viewport from "./components/scenes/TestScene";
 
 import store from './store'
 

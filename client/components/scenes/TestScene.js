@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import * as THREE from 'three'
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls"
+import models from '../../assets/models';
 
-class Viewport extends Component {
+class TestScene extends Component {
+  constructor(){
+    super();
+
+  }
+
 
   componentDidMount(){
     this.sceneSetup();
@@ -22,6 +28,8 @@ class Viewport extends Component {
     this.controls.dispose();
   }
 
+
+
   handleWindowResize(){
     const width = this.el.clientWidth;
     const height = this.el.clientHeight;
@@ -30,6 +38,8 @@ class Viewport extends Component {
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
   }
+
+
 
   sceneSetup (){
     //get width & Height
@@ -57,15 +67,18 @@ class Viewport extends Component {
 
   addObjectsToScene(){
     //Creating & adding Mesh
-    const geo = new THREE.BoxGeometry(1, 1, 1);
-    const mat = new THREE.MeshPhongMaterial({
-      color: 0x156289,
-      emissive: 0x072534,
-      side: THREE.DoubleSide,
-      flatShading: true
-    });
+    // const geo = new THREE.BoxGeometry(1, 1, 1);
+    // const mat = new THREE.MeshPhongMaterial({
+    //   color: 0x156289,
+    //   emissive: 0x072534,
+    //   side: THREE.DoubleSide,
+    //   flatShading: true
+    // });
 
-    this.cube = new THREE.Mesh( geo, mat );
+    // this.cube = new THREE.Mesh( geo, mat );
+    this.cube = models.ball
+
+
     this.scene.add( this.cube )
     
     //Creating & adding lights
@@ -100,4 +113,4 @@ class Viewport extends Component {
 
 }
 
-export default Viewport;
+export default TestScene;
