@@ -2,13 +2,13 @@
   "name": "3dpong",
   "version": "1.0.0",
   "description": "## Stackthon project by Lucas Freitas",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "start": "node server",
+    "start": "server",
     "start-dev": "NODE_ENV='development' npm run build-cli-watch & NODE_ENV='development' nodemon server -e html,js,scss --ignore public --ignore client",
     "build-cli": "webpack",
     "build-cli-watch": "webpack -w",
-    "test": "NODE_ENV='test' mocha \"./test/**/*.spec.js\" --require @babel/register"
+    "electron-dev": "NODE_ENV='development' npm run build-cli-watch & NODE_ENV='development' electron ."
   },
   "repository": {
     "type": "git",

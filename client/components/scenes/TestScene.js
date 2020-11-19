@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import * as THREE from 'three'
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls"
-import models from '../../assets/models';
+import {ball, paddle} from '../../assets/models';
 
 class TestScene extends Component {
   constructor(){
     super();
-
+    this.state = {
+      objects: []
+    }
   }
 
 
@@ -31,8 +33,8 @@ class TestScene extends Component {
 
 
   handleWindowResize(){
-    const width = this.el.clientWidth;
-    const height = this.el.clientHeight;
+    const width = window.outerWidth;
+    const height = window.outerHeight;
 
     this.renderer.setSize( width, height );
     this.camera.aspect = width / height;
@@ -66,17 +68,7 @@ class TestScene extends Component {
   }
 
   addObjectsToScene(){
-    //Creating & adding Mesh
-    // const geo = new THREE.BoxGeometry(1, 1, 1);
-    // const mat = new THREE.MeshPhongMaterial({
-    //   color: 0x156289,
-    //   emissive: 0x072534,
-    //   side: THREE.DoubleSide,
-    //   flatShading: true
-    // });
-
-    // this.cube = new THREE.Mesh( geo, mat );
-    this.cube = models.ball
+    this.cube = ball
 
 
     this.scene.add( this.cube )
